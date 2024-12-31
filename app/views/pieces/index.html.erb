@@ -1,0 +1,8 @@
+<h1>Pieces#index</h1>
+<% @pieces.each do |piece| %>
+    <div>
+      <a href="/pieces/<%= piece.titleurl %>">
+        <%= piece.title %>
+      </a>
+    </div>
+  <% end %>
