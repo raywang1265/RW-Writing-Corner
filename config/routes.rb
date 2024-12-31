@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   root "pieces#index"
   get "/pieces", to: "pieces#index"
   get "/pieces/:titleurl", to: "pieces#show"
+
+  resources :subscribers, only: [:create]
+  resource :unsubscribe, only: [ :show ]
 end

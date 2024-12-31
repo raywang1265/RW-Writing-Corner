@@ -1,8 +1,21 @@
-<h1>Pieces#index</h1>
+<h1>Pieces</h1>
+<h2>most recent</h2>
+ <%= @recent.title %>
+ <%= @recent_preview_text %>
 <% @pieces.each do |piece| %>
     <div>
       <a href="/pieces/<%= piece.titleurl %>">
         <%= piece.title %>
       </a>
+      <p>
+        <%= @preview_text[piece.title] %>
+      </p>
     </div>
-  <% end %>
+<% end %>
+
+<p>Subscribe</p>
+
+<%= form_with model: [Subscriber.new] do |form| %>
+    <%= form.email_field :email, placeholder: "you@example.com", required: true %>
+    <%= form.submit "Submit" %>
+<% end %>
