@@ -13,6 +13,8 @@
     padding: 0;
     overflow-x: hidden; /* Hide horizontal overflow if unintended */
 }
+
+/* nav */
 .nav {
     margin: 0px;
     padding: 0px;
@@ -55,4 +57,38 @@
 
 .homebutton {
     padding-bottom: 10px;
+}
+
+/* latest */
+
+.latestwrapper {
+    border: 2px solid red;
+    display: grid;
+    width: 100%;
+    height: 800px;
+    grid-template-columns: 1fr 1200px 1fr;
+    grid-template-rows: 100px 450px 150px 100px;
+    background-color: #b6aea2;
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.latestwrapper h1 {
+    grid-area: 1 / 2 / span 1 / span 1;
+}
+
+.latestbox {
+    grid-area: 2 / 2 / span 2 / span 1;
+    background-color: #16566c;
+    height: 100%;
+    width: 100%;
+}
+
+.circle {
+    grid-area: 1 / 1 / span 2 / span 3;
+    background-color: #f3e8d8;
+    height: 1000px;
+    width: 1000px;
+    border-radius: 50%;
 }
