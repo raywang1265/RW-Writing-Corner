@@ -3,11 +3,17 @@
   </div>
   <h1>Latest Piece</h1>
   <div class="latestbox">
+    <div style="background-image: url('<%= @recent.imgsource %>');" class="recent-img">
+    </div>
+    <div class="recent-text">
+      <p id="title"><%= @recent.title %></p>
+      <p id="date"><%= @recent.date %></p>
+      <p id="text"><%= @recent_preview_text %></p>
+      <a href="/pieces/<%= @recent.titleurl %>" id="button">Read</a>
+    </div>
   </div>
 </div>
 
- <%= @recent.title %>
- <%= @recent_preview_text %>
 <% @pieces.each do |piece| %>
     <div>
       <a href="/pieces/<%= piece.titleurl %>">

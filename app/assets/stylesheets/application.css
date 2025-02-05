@@ -12,6 +12,7 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Hide horizontal overflow if unintended */
+    font-family: "Roboto Serif", serif
 }
 
 /* nav */
@@ -44,13 +45,13 @@
 }
 
 .logo #top {
-    font-size: 30px;
+    font-size: 27px;
     color: #555252;
     font-weight: bold;
 }
 
 .logo #bottom {
-    font-size: 25px;
+    font-size: 22px;
     color: #555252;
     font-weight: bold;
 }
@@ -62,16 +63,75 @@
 /* latest */
 
 .latestwrapper {
-    border: 2px solid red;
     display: grid;
     width: 100%;
     height: 800px;
-    grid-template-columns: 1fr 1200px 1fr;
-    grid-template-rows: 100px 450px 150px 100px;
+    grid-template-columns: 1fr 80% 1fr;
+    grid-template-rows: 100px 55% 20% 100px;
     background-color: #b6aea2;
     justify-items: center;
     align-items: center;
     overflow: hidden;
+}
+
+.latestwrapper h1 {
+   color: #555252;
+}
+
+.recent-img {
+    background-size: auto 100%; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.recent-text {
+    display: grid;
+    grid-template-columns: 1fr 60% 1fr;
+    grid-template-rows: 20% 10% 50% 20%;
+    justify-items: left;
+}
+
+.recent-text p {
+    color: #d3cec1;
+}
+
+.recent-text #title {
+    font-size: 3em;
+    grid-area: 1 / 2 / span 1 / span 1;
+    padding: 0px;
+    margin: 0px;
+    align-self: flex-end
+}
+
+.recent-text #date {
+    grid-area: 2 / 2 / span 1 / span 1;
+    font-size: 1.1em;
+}
+
+.recent-text #text {
+    grid-area: 3 / 2 / span 1 / span 1;
+    font-size: 1.1em;
+}
+
+.recent-text #button {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    grid-area: 4 / 2 / span 1 / span 1;
+    text-decoration: none;
+    border: black solid 1px;
+    width: 120px;
+    height: 40px;
+    justify-self: center;
+    background-color: #d3cec1;
+    color: black;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.recent-text #button:hover {
+    background-color: #3C7387;
+    color: #d3cec1;
 }
 
 .latestwrapper h1 {
@@ -83,12 +143,16 @@
     background-color: #16566c;
     height: 100%;
     width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .circle {
     grid-area: 1 / 1 / span 2 / span 3;
     background-color: #f3e8d8;
     height: 1000px;
-    width: 1000px;
+    width: 130%;
+    justify-self: center;
+    margin-bottom: 15%;
     border-radius: 50%;
 }
