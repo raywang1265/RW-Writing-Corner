@@ -189,6 +189,7 @@ body {
 
 .short-stories-wrapper {
     display: flex;
+    flex-wrap: wrap;
     gap: 50px;
     justify-content: center;
 }
@@ -208,6 +209,12 @@ body {
     height: 800px;
     grid-template-rows: 50% 50%;
     border-radius: 25px;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.piece-preview-box:hover {
+    transform: translate(6px, -6px); 
+    box-shadow: -6px 6px 15px rgba(0, 0, 0, 0.6); 
 }
 
 .piece-preview-text {
