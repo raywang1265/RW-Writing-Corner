@@ -13,17 +13,15 @@
     </div>
   </div>
 </div>
-
-<% @pieces.each do |piece| %>
-    <div>
-      <a href="/pieces/<%= piece.titleurl %>">
-        <%= piece.title %>
-      </a>
-      <p>
-        <%= @preview_text[piece.title] %>
-      </p>
-    </div>
-<% end %>
+<div class="all-pieces-wrapper">
+  <h1>All Pieces</h1>
+  <h2>Short Stories</h2>
+  <div class="short-stories-wrapper">
+    <% @pieces.each do |piece| %>
+      <%= render "piece-preview", piece: piece, preview_text: @preview_text[piece.title]%>
+    <% end %>
+  </div>
+</div>
 
 <p>Subscribe</p>
 
