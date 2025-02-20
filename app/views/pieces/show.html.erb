@@ -1,8 +1,6 @@
-<h1><%= @piece.title %></h1>
-<%= link_to "Back", pieces_path %>
-<%= image_tag @piece.imgsource %>
+<h1 class="show-title"><%= @piece.title %></h1>
+<div style="background-image: url('<%= @piece.imgsource %>');" class="show-img"></div>
 
-<div>
+<div class="show-text">
   <%= @text.html_safe %>
 </div>
-

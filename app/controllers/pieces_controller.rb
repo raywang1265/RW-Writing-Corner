@@ -3,6 +3,7 @@ require 'pandoc-ruby'
 
 class PiecesController < ApplicationController
   def index
+    @body_color = "#b6aea2"
     @preview_text = Hash.new
     @recent_preview_text = ""
     @pieces = Piece.all
@@ -48,12 +49,15 @@ class PiecesController < ApplicationController
   end
 
   def show
+    @body_color = "#f3e8d8"
     @piece = Piece.find_by(titleurl: params[:titleurl])
     # Read the RTF file from the source (local or remote)
     rtf_content = URI.open(@piece.textsource).read
 
     # Parse the RTF content
     @text = PandocRuby.convert(rtf_content, :from => :rtf, :to => :html)
+    @text.gsub!(/<p(?![^>]*class=)([^>]*)>([^<]*\*\*\*[^<]*)<\/p>/, '<p id="asterisks-break"\1>\2</p>')
+    #@text.gsub!(/(<p[^>]*>)(?![^<]*\*\*\*)([^<]+)/, '\1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp\2')
     #@preview_text = PandocRuby.convert(rtf_content, :from => :rtf, :to => :plain)
 
   end

@@ -21,8 +21,8 @@ body {
 
 /* nav */
 .nav {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     height: 160px;
     width: 100%;
     display: grid;
@@ -62,6 +62,16 @@ body {
 
 .homebutton {
     padding-bottom: 10px;
+}
+
+/* footer */
+
+.footer {
+    margin: 0;
+    padding: 0;
+    height: 75px;
+    width: 100%;
+    background-color: #d3cec1;
 }
 
 /* latest */
@@ -240,4 +250,44 @@ body {
 
 .piece-preview-text #text {
     text-align: left;
+}
+
+/* Show view */
+
+.show-img {
+    background-size: auto 100%; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 64vw;
+    height: 80vh;
+    justify-self: center; 
+}
+
+.show-title {
+    padding-top: 40px;
+    padding-bottom: 10px;
+    justify-self: center;
+    color: #555252;
+    font-size: 2.5em;
+}
+
+.show-text {
+    padding-top: 40px;
+    width: 64vw;
+    justify-self: center;
+    padding-bottom: 75px;
+}
+
+.show-text p {
+    padding: 0;
+    margin: 0;
+    text-indent: 50px;
+    line-height: 1.35;
+}
+
+#asterisks-break {
+    justify-self: center;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
