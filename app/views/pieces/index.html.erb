@@ -22,10 +22,15 @@
     <% end %>
   </div>
 </div>
+<div class="subscribe-wrapper">
+  <div class="circle2"></div>
+  <div class="subscribe-form">
+    <h1>Subscribe</h1>
+    <p>Get updates when new stories are posted!</p>
+    <%= form_with model: [Subscriber.new] do |form| %>
+        <%= form.email_field :email, placeholder: "you@example.com", required: true %>
+        <%= form.submit "Submit" %>
+    <% end %>
+  </div>
+</div>
 
-<p>Subscribe</p>
-
-<%= form_with model: [Subscriber.new] do |form| %>
-    <%= form.email_field :email, placeholder: "you@example.com", required: true %>
-    <%= form.submit "Submit" %>
-<% end %>
