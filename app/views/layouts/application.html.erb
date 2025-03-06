@@ -27,6 +27,11 @@
   </head>
 
   <body style="background-color: <%= @body_color || 'white' %>;">
+    <% flash.each do |name, msg| %>
+      <div class="alert-<%= name %>" onclick="this.classList.add('fade-out'); setTimeout(() => this.remove(), 1000);">
+        <p><%= msg %></p>
+      </div>
+    <% end %>
     <div class="nav">
       <div></div>
       <div></div>

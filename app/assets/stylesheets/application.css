@@ -105,7 +105,7 @@ body {
 .recent-text {
     display: grid;
     grid-template-columns: 1fr 60% 1fr;
-    grid-template-rows: 20% 10% 50% 20%;
+    grid-template-rows: 20% 10% 40% 30%;
     justify-items: left;
 }
 
@@ -141,15 +141,18 @@ body {
     width: 120px;
     height: 40px;
     justify-self: center;
+    align-self: center;
     background-color: #d3cec1;
     color: black;
     font-size: 1.1em;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
 .recent-text #button:hover {
-    background-color: #3C7387;
-    color: #d3cec1;
+    /* background-color: #555252;
+    color: #d3cec1; */
+    width: 130px;
+    height: 50px;
 }
 
 .latestwrapper h1 {
@@ -332,10 +335,38 @@ body {
 }
   
 .subscribe-form input[type="submit"]:hover {
-    background-color: #154c5e;
+    background-color: #183f4d;
 }
-  
 
+.alert-notice {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    height: 5vh;
+    width: 100%;
+    background-color: green;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    cursor: pointer;
+}
+
+.alert-notice p {
+    padding: 0px;
+    margin: 0px;
+    color: white;
+    font-size: 1em;
+}
+
+.fade-out {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    transition: opacity 1s ease-in-out, height 1s ease-in-out, padding 1s ease-in-out, margin 1s ease-in-out;
+}
 
 /* Show view */
 
