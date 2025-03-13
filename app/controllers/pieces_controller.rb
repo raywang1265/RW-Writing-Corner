@@ -11,36 +11,20 @@ class PiecesController < ApplicationController
 
     @pieces.each do |piece|
 
-      rtf_content = URI.open(piece.textsource).read
-      preview_text = PandocRuby.convert(rtf_content, :from => :rtf, :to => :plain)
+      if piece.preview_text == nil
+        @preview_text[piece.title] = generate_preview_text(piece)
+      else
+        @preview_text[piece.title] = piece.preview_text
+      end
 
       timestamp = piece.created_at
-
-      charindex = 450
-      lastchar = preview_text[charindex]
-
-      while lastchar != ' '
-        charindex += 1
-        lastchar = preview_text[charindex]
-      end
-      
-      @preview_text[piece.title] = preview_text[0, charindex] + "..."
-
 
       #recent text preview
       if (timestamp > mostrecent)
         @recent = piece
         mostrecent = timestamp
 
-        charindex = 450
-        lastchar = preview_text[charindex]
-  
-        while lastchar != ' '
-          charindex += 1
-          lastchar = preview_text[charindex]
-        end
-
-        @recent_preview_text = preview_text[0, charindex] + "..."
+        @recent_preview_text = @preview_text[piece.title]
       end
 
     end
@@ -60,5 +44,23 @@ class PiecesController < ApplicationController
     #@text.gsub!(/(<p[^>]*>)(?![^<]*\*\*\*)([^<]+)/, '\1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp\2')
     #@preview_text = PandocRuby.convert(rtf_content, :from => :rtf, :to => :plain)
 
+  end
+
+  def generate_preview_text(piece)
+    rtf_content = URI.open(piece.textsource).read
+    preview_text = PandocRuby.convert(rtf_content, :from => :rtf, :to => :plain)
+
+    charindex = 450
+    lastchar = preview_text[charindex]
+
+    while lastchar != ' '
+      charindex += 1
+      lastchar = preview_text[charindex]
+    end
+
+    final_preview_text = preview_text[0, charindex] + "..."
+    
+    piece.update!(preview_text: final_preview_text)
+    return final_preview_text
   end
 end
