@@ -1,0 +1,36 @@
+<div class="latestwrapper">
+  <div class="circle">
+  </div>
+  <h1>Latest Piece</h1>
+  <div class="latestbox">
+    <div style="background-image: url('<%= @recent.imgsource %>');" class="recent-img">
+    </div>
+    <div class="recent-text">
+      <p id="title"><%= @recent.title %></p>
+      <p id="date"><%= @recent.date %></p>
+      <p id="text"><%= @recent_preview_text %></p>
+      <a href="/pieces/<%= @recent.titleurl %>" id="button">Read</a>
+    </div>
+  </div>
+</div>
+<div class="all-pieces-wrapper">
+  <h1>All Pieces</h1>
+  <h2>Short Stories</h2>
+  <div class="short-stories-wrapper">
+    <% @pieces.each do |piece| %>
+      <%= render "piece-preview", piece: piece, preview_text: @preview_text[piece.title]%>
+    <% end %>
+  </div>
+</div>
+<div class="subscribe-wrapper">
+  <div class="circle2"></div>
+  <div class="subscribe-form">
+    <h1>Subscribe</h1>
+    <p>Get updates when new stories are posted!</p>
+    <%= form_with model: [Subscriber.new] do |form| %>
+        <%= form.email_field :email, placeholder: "you@example.com", required: true %>
+        <%= form.submit "Submit" %>
+    <% end %>
+  </div>
+</div>
+

@@ -21,12 +21,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "mobile", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
-
-  <body style="background-color: <%= @body_color || 'white' %>;">
+</head>
+<body style="background-color: <%= @body_color || 'white' %>;">
     <% flash.each do |name, msg| %>
       <div class="alert-<%= name %>" onclick="this.classList.add('fade-out'); setTimeout(() => this.remove(), 1000);">
         <p><%= msg %></p>

@@ -29,6 +29,15 @@ class PiecesController < ApplicationController
 
     end
 
+    respond_to do |format|
+      format.html do
+        if mobile_device?
+          render layout: "mobile", template: "pieces/index_mobile"
+        else
+          render "index"
+        end
+      end
+    end
 
   end
 
@@ -43,6 +52,16 @@ class PiecesController < ApplicationController
     @text.gsub!(/<p(?![^>]*class=)([^>]*)>([^<]*\*\*\*[^<]*)<\/p>/, '<p id="asterisks-break"\1>\2</p>')
     #@text.gsub!(/(<p[^>]*>)(?![^<]*\*\*\*)([^<]+)/, '\1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp\2')
     #@preview_text = PandocRuby.convert(rtf_content, :from => :rtf, :to => :plain)
+    
+    respond_to do |format|
+      format.html do
+        if mobile_device?
+          render layout: "mobile", template: "pieces/index_mobile"
+        else
+          render "index"
+        end
+      end
+    end
 
   end
 
@@ -62,5 +81,9 @@ class PiecesController < ApplicationController
     
     piece.update!(preview_text: final_preview_text)
     return final_preview_text
+  end
+
+  def mobile_device?
+    request.user_agent =~ /Mobile|webOS/
   end
 end
