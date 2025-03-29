@@ -8,7 +8,7 @@
     <div class="recent-text">
       <p id="title"><%= @recent.title %></p>
       <p id="date"><%= @recent.date %></p>
-      <p id="text"><%= @recent_preview_text %></p>
+      <p id="text"><%= truncate(@recent_preview_text, length: 200) %></p>
       <a href="/pieces/<%= @recent.titleurl %>" id="button">Read</a>
     </div>
   </div>
@@ -18,7 +18,7 @@
   <h2>Short Stories</h2>
   <div class="short-stories-wrapper">
     <% @pieces.each do |piece| %>
-      <%= render "piece-preview", piece: piece, preview_text: @preview_text[piece.title]%>
+      <%= render "piece-preview", piece: piece, preview_text: truncate(@preview_text[piece.title], length: 100)%>
     <% end %>
   </div>
 </div>

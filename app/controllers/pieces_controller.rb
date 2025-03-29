@@ -56,9 +56,9 @@ class PiecesController < ApplicationController
     respond_to do |format|
       format.html do
         if mobile_device?
-          render layout: "mobile", template: "pieces/index_mobile"
+          render layout: "mobile", template: "pieces/show_mobile"
         else
-          render "index"
+          render "show"
         end
       end
     end
