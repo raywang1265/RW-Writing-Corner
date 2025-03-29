@@ -49,6 +49,7 @@ class PiecesController < ApplicationController
 
     # Parse the RTF content
     @text = PandocRuby.convert(rtf_content, :from => :rtf, :to => :html)
+    @text.gsub!(/<p>\\n<\/p>/, "<br>")
     @text.gsub!(/<p(?![^>]*class=)([^>]*)>([^<]*\*\*\*[^<]*)<\/p>/, '<p id="asterisks-break"\1>\2</p>')
     #@text.gsub!(/(<p[^>]*>)(?![^<]*\*\*\*)([^<]+)/, '\1&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp\2')
     #@preview_text = PandocRuby.convert(rtf_content, :from => :rtf, :to => :plain)
