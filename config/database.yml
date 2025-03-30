@@ -17,7 +17,7 @@ default: &default
   encoding: unicode
   host: localhost
   username: raywang1265
-  password: Ray@9018
+  password: ubettercarry123
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
@@ -82,9 +82,11 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: rw_writing_corner_production
-    username: rw_writing_corner
-    password: <%= ENV["RW_WRITING_CORNER_DATABASE_PASSWORD"] %>
+    database: <%= ENV['RDS_DATABASE'] %>
+    username: <%= ENV['RDS_USERNAME'] %>
+    password: <%= ENV['RDS_PASSWORD'] %>
+    host: <%= ENV['RDS_HOST'] %>
+    post: 5432
   cache:
     <<: *primary_production
     database: rw_writing_corner_production_cache
