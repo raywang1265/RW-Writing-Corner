@@ -57,11 +57,24 @@ body {
 /* footer */
 
 .footer {
+    justify-content: center;
     margin: 0;
-    padding: 0;
-    height: 50px;
+    padding-top: 12px;
+    padding-bottom: 0;
+    height: 60px;
     width: 100%;
     background-color: #d3cec1;
+    align-items: center;
+}
+
+.footer p {
+    margin-top: 7px;
+    margin-bottom: 0;
+    padding: 0;
+    color: #555252;
+    font-size: 0.7em;
+    text-align: center;
+    white-space: pre;
 }
 
 /* latest */
