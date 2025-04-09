@@ -118,7 +118,9 @@ body {
 }
 
 .recent-text #title {
-    font-size: 2em;
+    font-size: clamp(1em, 1.3em, 2em);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
     grid-area: 1 / 2 / span 1 / span 1;
     padding: 0px;
     margin: 0px;
@@ -259,7 +261,9 @@ body {
 
 .piece-preview-text #title {
     text-align: left;
-    font-size: 1em;
+    font-size: clamp(0.6em, 0.7em, 1em);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .piece-preview-text #date {

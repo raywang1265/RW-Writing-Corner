@@ -5,7 +5,7 @@ class PieceMailer < ApplicationMailer
   #   en.piece_mailer.new_piece.subject
   #
   def new_piece
-    @piece = params[:piece].form.downcase
+    @piece = params[:piece]
     mail to: params[:subscriber].email,
          subject: "New Piece Available: #{@piece.title}"
   end

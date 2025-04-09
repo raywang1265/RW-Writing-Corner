@@ -1,6 +1,7 @@
 <p>Good news!</p>
 
-<p>A new <%= @piece %> is waiting to be read :)</p>
+<p>A new <%= @piece.form.downcase %> is waiting to be read :)</p>
+<p>Click --> <%= link_to 'here', "rwwritingcorner.com" %> <-- to check it out</p>
 
 <%= link_to "Unsubscribe", unsubscribe_url(token: params[:subscriber].generate_token_for(:unsubscribe)) %>
 

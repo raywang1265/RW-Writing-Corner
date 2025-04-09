@@ -1,5 +1,6 @@
 Good news!
 
-A new <%= @piece %> is waiting to be read :)
+A new <%= @piece.form.downcase %> is waiting to be read :)
+Click --> rwwritingcorner.com <-- to check it out
 
 Unsubscribe: <%= unsubscribe_url(token: params[:subscriber].generate_token_for(:unsubscribe)) %>
