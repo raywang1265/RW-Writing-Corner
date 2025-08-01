@@ -320,12 +320,17 @@ body {
 }
 
 .subscribe-form form {
-    justify-self: center;
-    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: min(720px, 90%);
+    margin-inline: auto;
+    flex-wrap: nowrap;
 }
 
 .subscribe-form input[type="email"] {
-    width: 75%;
+    flex: 1 1 auto; min-width: 0; width: auto; 
     padding-top: 6px;
     padding-bottom: 6px;
     font-size: 1em;
@@ -341,7 +346,7 @@ body {
 }
   
 .subscribe-form input[type="submit"] {
-    width: 20%;
+    flex: 0 0 auto; width: auto; white-space: nowrap;
     padding-top: 8px;
     padding-bottom: 8px;
     font-size: 14px;
@@ -390,6 +395,12 @@ body {
 }
 
 /* Show view */
+
+.show-wrapper { 
+    display: grid; 
+    justify-items: center; 
+    padding-inline: 16px; 
+}
 
 .show-img {
     background-size: auto 100%; 
