@@ -475,5 +475,3 @@ body {
 /* Let flex handle widths so borders/rounding/whitespace don’t push to 2nd line */
 .subscribe-form input[type="email"]  { flex: 1 1 auto; min-width: 0; width: auto; }
 .subscribe-form input[type="submit"] { flex: 0 0 auto; width: auto; white-space: nowrap; }
-
-body { outline: 4px solid magenta; }
