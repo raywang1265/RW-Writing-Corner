@@ -441,3 +441,37 @@ body {
     padding-bottom: 10px;
 }
 
+/* --- mobile behavior fixes (place at end of style.css) --- */
+
+/* predictable sizing everywhere (keep this if you added it already) */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* SHOW PAGE: center the blocks without relying on grid-only properties */
+.show-title, .show-img, .show-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+.show-title { text-align: center; }
+
+/* Let the text block size to the viewport, not a fixed 300px */
+.show-text {
+  width: auto;                           /* override earlier width: 300px; */
+  max-width: min(64ch, calc(100vw - 32px));
+  padding-left: 16px;                    /* breathing room on small screens */
+  padding-right: 16px;
+}
+
+/* SUBSCRIBE FORM: keep input + button on one line, avoid % overflows */
+.subscribe-form form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(720px, 90%);
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: nowrap;                     /* prevents wrapping on phones */
+}
+
+/* Let flex handle widths so borders/rounding/whitespace don’t push to 2nd line */
+.subscribe-form input[type="email"]  { flex: 1 1 auto; min-width: 0; width: auto; }
+.subscribe-form input[type="submit"] { flex: 0 0 auto; width: auto; white-space: nowrap; }

@@ -32,6 +32,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/credentials.yml.enc
 
 pandoc-3.6.4-1-amd64.deb
 yarn.lock
